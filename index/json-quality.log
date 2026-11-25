@@ -1,0 +1,17 @@
+ExcelOutput/ActivityDiceConstValueCommo.json	duplicate keys	24
+ExcelOutput/B51RacingConstValueCommon.json	duplicate keys	7
+ExcelOutput/ChimeraConstClient.json	duplicate keys	8
+ExcelOutput/ChimeraDuelConstCommon.json	duplicate keys	42
+ExcelOutput/ConstValueClient.json	duplicate keys	126
+ExcelOutput/ConstValueCommon.json	duplicate keys	2
+ExcelOutput/ExpeditionBattleConstCommon.json	duplicate keys	4
+ExcelOutput/FateRinConstCommon.json	duplicate keys	1
+ExcelOutput/GridFightConstCommon.json	duplicate keys	7
+ExcelOutput/GridFightConstValueCommonV2.json	duplicate keys	17
+ExcelOutput/MultiplayConstValueCommon.json	duplicate keys	4
+ExcelOutput/ParkourConstValueCommon.json	duplicate keys	2
+ExcelOutput/PlanetFesConstValueCommon.json	duplicate keys	8
+ExcelOutput/RoguePersonaConstCommon.json	duplicate keys	2
+ExcelOutput/TrainPartyConstValueClient.json	duplicate keys	9
+checked 134609 files; 15 file/category issues; 263 instances
+string type annotations in shadowed properties: 0

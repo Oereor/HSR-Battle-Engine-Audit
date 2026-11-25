@@ -1,0 +1,6 @@
+callback domains: {'rt-mode': 601, 'core': 35295} {'rt-mode': 38, 'core': 216}
+hook/container roles: 83668 84
+typed event/trigger review candidates: 368
+named/animation/token catalog entries: 803
+custom event tuples declared/sent/consumer/mixed: 14 12 7 6
+animation waits: {'explicit-character-import': 26}

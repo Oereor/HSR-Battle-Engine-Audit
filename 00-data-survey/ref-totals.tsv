@@ -1,0 +1,15 @@
+kind	status	count
+ability	ambiguous	616
+ability	candidate	36179
+ability	scoped	6297
+ability	unresolved	3981
+alias	candidate	2016
+alias	scoped	2188
+alias	unresolved	256917
+file	confirmed	240672
+file	unresolved	2608
+modifier	ambiguous	705
+modifier	candidate	20556
+modifier	scoped	42553
+modifier	unresolved	6780
+template	unresolved	433

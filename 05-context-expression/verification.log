@@ -1,0 +1,21 @@
+122 exact fragments; 20 static checks
+asta-basic-L1 0.5 Derived
+asta-basic-L2 0.6 Derived
+asta-point-Chance 0.8 Derived
+asta-point-LifeTime 3 Derived
+asta-point-product-L1 0.25 Inferred
+asta-point-product-L2 0.30 Inferred
+bronya-base 1 Derived
+bronya-E6 2 Inferred
+bronya-boost 0.33 Derived
+tingyun-base 50 Derived
+tingyun-E6 60 Inferred
+equip20000-crit-L1 0.12 Derived
+equip20000-lifetime-L1 3 Derived
+equip20000-crit-L2 0.15 Derived
+equip20000-lifetime-L2 3 Derived
+relic106-hp-check 0.5 Derived
+relic106-heal-rate 0.08 Derived
+relic106-recover-energy 5 Derived
+acheron-exrank 1 Derived
+aglaea-fixed-servant 11402 Observed

@@ -1,0 +1,11 @@
+direct-scoped: 3332 unique edges, 14 cyclic SCCs
+direct-with-unique-candidates: 6305 unique edges, 14 cyclic SCCs
+with-modifier-and-template-bridges: 35832 unique edges, 213 cyclic SCCs
+ability definitions: 17102 unique names: 16941
+ability field locations: 47073 statuses: {'ambiguous': 616, 'candidate': 36179, 'scoped': 6297, 'unresolved': 3981}
+ambiguous candidate records: 1232 typed graph rows (including unresolved): 68291
+Excel row levels and config key matches: {'config-path-missing': 82, 'entry-not-present': 60, 'entry-observed': 21372, 'skill-master-missing': 25, 'skill-name-missing': 413, 'trigger-key-empty': 115}
+Excel extension candidate rows by field: {'AbilityList': 392, 'AbilityName': 1638, 'AbilityNameList': 383, 'RankAbility': 76, 'StageAbilityConfig': 6979}
+parameter bindings: 5 cross-file pointer and ID checks, level 1 vs 2 row verified
+static checks passed: sample path and unique definition agreement, SCC fixture, and index count
+additional Ability definitions in v2: {'Config/Activity/RtBattle': 557, 'Config/Activity/RtDefence': 34, 'Config/ConfigAdventureAbility/Activity': 2, 'Config/ConfigAdventureAbility/FakePlayer': 19, 'Config/ConfigAdventureAbility/LocalPlayer': 266, 'Config/ConfigAdventureAbility/NpcMonster': 281, 'Config/ConfigAdventureAbility/SummonUnit': 21, 'Config/ConfigChessAbility/ChessCharacter': 9}

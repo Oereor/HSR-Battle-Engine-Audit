@@ -1,0 +1,5 @@
+callback positions 35896, distinct raw names 224, priority fields 1524
+hook/container positions 83668, direct core lifecycle counts {'OnStart': 11855, 'OnAdd': 5481, 'OnInsertAbort': 110, 'OnRemove': 35}
+animation WaitAnimEvent: all 26 locations and linked roots verified
+14 declared custom event tokens and 181 exact references verified
+three-way (4,13) and behavior-flag/RemoveSelfModifier samples verified

@@ -1,0 +1,19 @@
+target dictionary container absent Config/Activity/RtDefence/TargetOperationConfig_RtDefence.json OperationDict ['AvatarIDMin']
+target dictionaries {('common', 'alias'): 196, ('common', 'operation'): 80, ('rt-battle', 'alias'): 28, ('rt-battle', 'operation'): 7, ('rt-defence', 'alias'): 12, ('file-local', 'alias'): 362}
+alias references 261121 distinct 1184
+v2 unresolved matched by exact unique 250243
+v2 unresolved with all component candidates 5513
+raw files 2942 {'rt-battle': 182, 'rt-defence': 14, 'core': 2744, 'common': 2}
+target fields 273758 rows 138
+target literal 25316 rows 81
+FixedValue 106799 rows 7
+PostfixExpr 74704 rows 742
+ReadInfo 53269 rows 18
+ContextScope 9431 rows 108
+variable fields 85530 rows 173
+postfix patterns 700
+typed-role control primary-type-count 12 primary-matches 55944 all-type-count 13
+typed-role predicate primary-type-count 252 primary-matches 77006 all-type-count 508
+typed-role target-structure primary-type-count 142 primary-matches 240421 all-type-count 196
+typed-role value-evaluator primary-type-count 15 primary-matches 1638 all-type-count 15
+typed-role value-or-state-operation primary-type-count 93 primary-matches 37793 all-type-count 154

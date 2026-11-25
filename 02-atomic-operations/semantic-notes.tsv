@@ -1,0 +1,70 @@
+type	category	grade	configured_role	focus_fields
+RPG.GameCore.DamageByAttackProperty	伤害配置	Observed	目标查询和 AttackData 分列，可携带伤害比例、韧性字段和命中表现。	TargetType,AttackProperty,OverrideAttacker,EqualSplitInTargets,OnAfterHit
+RPG.GameCore.ModifyDamageData	伤害上下文修正	Inferred	回调样本写入攻击者和受击者的伤害数据参数。	Attacker_CriticalDamage,AttackData_ConstFinalDamage,AttackData_DamagePercentage,Defender_DefenceDelta,Defender_AllDamageTypeTakenRatio
+RPG.GameCore.DamagePerformFinish	结算边界候选	Observed	伤害任务附近显式出现结束节点，部分带死亡结算跳过字段。	SkipDeathSettlement,IsFakeAvatarAttack
+RPG.GameCore.DamageStance	韧性	Observed	攻击方、受击方、韧性值和类型拥有独立输入。	AttackerTargetType,DefenderTargetType,StanceValue,StanceDamageType,ForceStanceDamage
+RPG.GameCore.InitShield	护盾	Inferred	护盾回调初始化与目标、百分比和固定值来源相连接。	TargetType,FormulaType,ShieldValue,ShieldPercentage
+RPG.GameCore.ModifyShield	护盾	Inferred	携带既有护盾与修改操作配置，保留可扩展最大值开关。	ShieldModifiers,FormulaValue,ModifyOp,AllowExpandMax
+RPG.GameCore.RemoveShield	护盾	Inferred	用于部分护盾 Modifier 移除路径，目标及显示参数可配置。	TargetType,ShowText
+RPG.GameCore.StackShield	护盾	Observed	提供叠加值、上限和公式字段。	CalculateFormula_MaxStack,CalculateFormula_StackValue,MaxStack,StackValue
+RPG.GameCore.HealHP	治疗	Observed	含可选治疗来源、显式目标、公式枚举与分列的比例和数值输入。	TargetType,HealerTargetType,FormulaType,HealPercentage,ModifyValue
+RPG.GameCore.LoseHP	生命消耗	Observed	绝对量字段、护盾消耗开关、下限和来源标签可见。	TargetType,DamageValue,ConsumeShield,Floor,SourceType
+RPG.GameCore.LoseHPByRatio	生命消耗	Observed	比率基准、比例和下限可见，部分样本还指定攻击类别及护盾开关。	TargetType,RatioType,Ratio,Floor,DamageType,AttackType,ConsumeShield
+RPG.GameCore.SetHP	生命设置	Observed	可使用比率、数值、来源和变更原因字段。	TargetType,ModifyRatio,ModifyValue,SourceType,ChangeReason
+RPG.GameCore.HitDamageSplit	伤害上下文修正	Inferred	受击方与拆分目标的比例并列配置。	SplitTarget,SelfSplitRatio,TargetSplitRatio,ForceUseSelfSplit
+RPG.GameCore.AddModifier	状态施加	Derived	名称与 Modifier 定义存在可核验同文件连边，可声明生命周期初始化、绑定值及结果任务。	ModifierName,TargetType,DynamicValues,Chance,LifeTime,SuccessTaskList,FailTaskList,ResistedTaskList
+RPG.GameCore.RemoveModifier	状态移除	Derived	使用目标和 Modifier 名称连边，部分样本区分施加者和实例范围。	ModifierName,TargetType,OnlyRemoveCasterAdded,RemoveAllInstance,RemoveToBeAdded
+RPG.GameCore.DispelStatus	状态移除	Observed	由状态类别、行为旗标、数量和顺序参数描述选取范围。	BehaviorFlags,BuffType,Numbers,Order,OnlyCanDispel,OnlyAlive,TargetType
+RPG.GameCore.SetModifierValue	Modifier 值写入	Observed	可按 Modifier 名称、值类别和修改函数定位写入配置。	ModifierName,ValueType,ModifyFunction,Value,TargetType
+RPG.GameCore.SetModifierDynamicValue	Modifier 值写入	Observed	并列配置 Modifier 锚定字段、动态键和值。	ModifierName,Key,Value,DynamicKey,TargetType
+RPG.GameCore.ModifyAddModifierBindValue	状态持续参数	Observed	出现 LifeTimeDelta、目标行为旗标和唯一键。	LifeTimeDelta,TargetBehaviorFlagList,UniqueKey
+RPG.GameCore.ModifySP	SP 输入	Observed	目标与修改函数、修改量分列。	TargetType,ModifyFunction,ModifyValue,IgnoreBlock
+RPG.GameCore.ModifySPNew	SP 输入	Observed	目标与百分比、固定量、设值、标签字段可独立组合。	TargetType,AddRatio,AddValue,FixedAddValue,SetValue,SetMaxSPRatio,Tag
+RPG.GameCore.ModifySpecialSP	特殊 SP 输入	Observed	与普通 SP 为不同序列化类型，有部分重叠字段。	TargetType,AddMaxSPRatio,FixedAddValue,IgnoreBlock,SetValue
+RPG.GameCore.ModifyTeamBoostPoint	队伍资源	Observed	配置以修改函数和修改量为主，字段表未见目标。	ModifyFunction,ModifyValue,IsSilence
+RPG.GameCore.ModifyTeamBoostPointMax	队伍资源上限	Observed	队伍资源上限独立配置修改函数和修改量。	ModifyFunction,ModifyValue
+RPG.GameCore.StackAdditionalTeamBoostPoint	队伍资源扩展	Observed	直接字段含额外队伍资源量。	ModifyValue
+RPG.GameCore.ModifyActionDelay	行动值修改	Observed	目标旁可配置绝对增量与归一化增量，部分声明版本字段。	TargetType,AddValue,AddNormalizedValue,ChangeDelayVersion
+RPG.GameCore.SetActionDelay	行动值设置	Observed	使用目标加指定值或归一化指定值。	TargetType,Value,NormalizedValue
+RPG.GameCore.SetActionDelayNearTarget	行动位置控制	Observed	分别指定受操作目标、相对目标和相对类型。	TargetType,NearTargetType,NearType,CustomSource,IsInit
+RPG.GameCore.LockActionDelayChange	行动值限制	Observed	锁键、锁状态与变更白名单可单独指定。	IsLock,LockKey,LockTargetType,WhitelistChangeReason,WhitelistChangeType,WhitelistSourceEntity
+RPG.GameCore.TurnInsertAbility	Ability 插入请求	Derived	声明 Ability 名称、执行者和 Ability 目标，有可核验符号边，附加取消标签、资格和排序字段。	AbilityName,AbilityTarget,TargetType,AbortBehaviorFlags,InsertAbilityPriority,PreCheck,ActivePredicate
+RPG.GameCore.TurnInsertAction	行动插入请求	Observed	有技能索引和类型、准备 Ability、自动施放、忽略资源扣除及取消分支。	TargetType,SkillIndex,SkillType,PrepareAbilityName,AutoCast,IgnoreBPDec,IgnoreSPDec,OnInsertAbort
+RPG.GameCore.TriggerAbility	Ability 调用	Derived	有同行为图上可定位的 Ability 名称，独立配置目标、固有目标和参数。	TargetType,AbilityName,AbilityInherentTargetType,DynamicValues,IsSkillPerform
+RPG.GameCore.AbortInsertAbility	插入取消	Observed	带指定 Ability 名称及筛选目标字段。	AbilityName,TargetFilter
+RPG.GameCore.IncludeTaskListTemplate	模板引用	Derived	具名模板任务可由 Name 连边，部分传入任务本身。	Name,ParamTarget,DynamicValues,TemplateParamSequences
+RPG.GameCore.Retarget	选取并执行	Observed	以目标查询、条件、随机限制、数量上限及子任务描述组合。	TargetType,Predicate,ByRandom,MaxNumber,TaskList,FailedTaskList
+RPG.GameCore.PredicateTaskList	分支	Observed	判定和成功、失败两组任务独立。	Predicate,SuccessTaskList,FailedTaskList
+RPG.GameCore.LoopExecuteTaskList	循环	Observed	循环上限和子任务可以独立配置。	MaxLoopCount,TaskList
+RPG.GameCore.LoopExecuteTaskListWithInterval	循环及间隔	Observed	循环上限、精确时间字段与子任务并列。	MaxLoopCount,PreciseTime,TaskList
+RPG.GameCore.ConditionLoopExecuteTaskList	条件循环	Observed	规则同时含循环上限、条件与任务列表。	MaxLoopCount,Predicate,TaskList
+RPG.GameCore.SwitchCaseByDynamicValue	多分支	Observed	按配置值、比较方式、分支列表、默认任务及 break 开关组织。	Switch,CompareType,CaseTaskList,DefaultTaskList,WithBreak
+RPG.GameCore.DefineDynamicValue	变量定义	Observed	出现键、重置值、目标和上下文范围。	ContextScope,DynamicKey,ResetValue,TargetType
+RPG.GameCore.SetDynamicValue	变量写入	Observed	给出键、值、目标与作用域。	ContextScope,DynamicKey,Value,TargetType
+RPG.GameCore.SetDynamicValueByAddValue	变量增量	Observed	声明键、增量、数值上下界及上下文范围。	Key,AddValue,Max,Min,ContextScope,TargetType
+RPG.GameCore.SetDynamicValueByCopying	变量复制	Observed	读写两端分别给出键与目标，并可带读取 Modifier 和目的上下文。	FromDynamicKey,FromModifierName,FromTargetType,ToDynamicKey,ToTargetType,TargetContextScope
+RPG.GameCore.SetDynamicValueByProperty	属性读写	Observed	读取目标、属性及结果动态键并列。	DynamicKey,ReadTargetType,Value,ContextScope
+RPG.GameCore.SetDynamicValueByModifierValue	Modifier 值读取	Observed	声明读取目标、Modifier、值类别和写入动态键及乘数。	DynamicKey,ReadTargetType,ModifierName,ValueType,Multiplier,ContextScope
+RPG.GameCore.TriggerModifierCustomEvent	事件发出请求	Observed	包含事件值、目标、显式参数实体改写和前置检查。	EventType,TargetType,IncludeLimbo,OverrideParamEntity,PreCheck,DynamicKey,Value
+RPG.GameCore.CreateBattleEvent	战斗事件实体创建	Observed	可传事件 ID、队伍、施加者和创建前、创建时的子任务。	EventID,Team,SpecifyCaster,DynamicValues,OnBeforeCreateCallback,OnBattleEventCreate
+RPG.GameCore.SummonMonster	敌方实体创建	Observed	单节点可提交多项实体数据，可指定继承属性、行动延迟并附创建任务。	SummonMonsterDataList,InheritPropertyList,InheritSummonerDelay,InheritSummonerWeakness,OnMonsterCreate
+RPG.GameCore.SummonPartner	实体配置候选	Observed	以成员名、配置文件与 prefab 描述请求。	MemberName,ConfigPath,PrefabPath,RefreshFormation
+RPG.GameCore.CreateServant	忆灵创建	Derived	固定 ServantID 与主数据行可按 ID 静态连接，且有参数传入形态。	ServantID,DynamicValues,OnServantCreate
+RPG.GameCore.CreateBattleEventServant	战斗事件实体创建	Observed	事件 ID 和召唤来源及继承 HP、速度比可见，采用自身实体创建配置形态。	EventID,SummonerBE,Team,InheritHPRatio,InheritSpeedRatio,OnBattleEventCreate
+RPG.GameCore.ForceKill	实体状态	Inferred	常见于指定目标清除路径，带死亡、复活、余留插入和触发抑制参数。	TargetType,KillerType,DeathSource,AllowRevive,MuteTriggerDeath,AbortUnusedInsertAbility
+RPG.GameCore.CharacterChangePhase	实体阶段	Observed	显式目标、阶段名、阶段动画及还原开关。	PhaseName,PhaseAnimConfig,RevertToDefault,TargetType
+RPG.GameCore.SetControlSkillMapping	技能映射	Observed	配置目标、技能键和控制技能类别。	ControlSkillType,SkillTriggerKey,TargetType
+RPG.GameCore.AttachSkillTypeDisable	行为限制	Observed	目标可与技能名、技能类别和提示并列。	TargetType,ControlSkillTypes,SkillNames,Types,Tip
+RPG.GameCore.StackProperty	属性叠加	Observed	指定目标、属性和数值，且有刷新与静默字段。	TargetType,Property,PropertyValue,IsRefresh,Silence
+RPG.GameCore.ModifyProperty	属性修改	Observed	选择目标、属性、修改函数和值。	TargetType,Property,ModifyFunction,ModifyValue
+RPG.GameCore.PerformDelayExecute	延后任务	Observed	显式延迟和任务列表，部分含目标及存活筛选。	Delay,PerformTaskList,AliveOnly,TargetType
+RPG.GameCore.WaitSecond	表现与时点	Observed	等待时长并列实时模式字段。	WaitTime,IsRealtime,UseRealtime,TaskEnabled
+RPG.GameCore.WaitAnimState	动画时点	Observed	任务可指定动画状态、归一化时刻和状态变化处理。	TargetType,AnimStateName,NormalizedTimeEnd,SkipWhenStateChange,WaitForFrameEnd
+RPG.GameCore.FireWaveProjectile	高层复合任务	Observed	投射物生成与每发伤害任务对象、数量、间隔和完成选项可在同一节点编排。	TargetType,Count,Interval,Projectile,PerProjectileDamage,WaitProjectileFinish,OnProjectileHitClientOnly
+RPG.GameCore.VCameraConfigChange	表现	Observed	使用镜头配置对象及标签字段。	CameraConfig,Tag
+RPG.GameCore.SetEffectAnimatorParameter	表现	Observed	可指定效果名称、动画参数名称与原始值类型。	UniqueEffectName,ParameterName,ParameterType,BoolValue,IntValue,FloatValue,TargetType
+RPG.GameCore.RtInsertSkill	特殊玩法调度	Observed	RtBattle 资源支持技能名、优先级和两种目标参数。	SkillName,Priority,TargetType,SkillTargetType
+RPG.GameCore.AddRegardAsSkillType	技能分类映射	Observed	同一罕见操作同时给出原类别和认可类别。	TargetType,OriginalSkillType,RegardSkillType
+RPG.GameCore.ClearRegardAsSkillType	技能分类映射	Observed	配对节点保留原类别和相同目标。	TargetType,OriginalSkillType
+RPG.GameCore.GridFightOverrideBackEndHP	特定玩法接口	Unknown	单一 GridFight 创建回调样本，后端含义和实际影响未知。	TargetType,Value,HP,Ratio
+RPG.GameCore.ElationActivityActionBarAbilityChange	特定玩法接口	Observed	用于欢愉活动 Ability 的中止配置，实际 UI 切换时序未知。	TargetType,AbilityName,SkillName,SkillType

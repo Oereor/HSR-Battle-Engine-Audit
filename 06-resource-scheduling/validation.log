@@ -1,0 +1,4 @@
+Passed Archer master/entry/rank/insert links, DanHengIL tier costs and override, Phainon eligibility.
+Passed standard/special SP distinction and resource event payload/overflow branches.
+Passed ordered-request predicate and four entity-to-BattleEvent joins, including separate servant namespace.
+231 indexed interface types and 101 event-role rows verified.

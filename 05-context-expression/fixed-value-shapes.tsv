@@ -1,0 +1,8 @@
+domain	is_dynamic_shape	is_dynamic	fixed_shape	value_shape	occurrences	path	pointer
+common	bool	False	dict	int	9	Config/GlobalConfig/TargetAliasConfig.json	/AliasDict/CastoriceServant/Sequence/1/Predicate/TargetCharacterID/FixedValue
+core	bool	False	dict	float	34558	Config/ConfigAbility/Activity/ActivitySummon/ActivitySummon_Junk_BattleEvent_01_Ability.json	/AbilityList/0/TaskListTemplate/0/TaskList/0/NormalizedTimeEnd/FixedValue
+core	bool	False	dict	int	67846	Config/ConfigAbility/Activity/ActivitySummon/ActivitySummon_Junk_BattleEvent_01_Ability.json	/AbilityList/0/OnStart/4/Predicate/CompareValue/FixedValue
+rt-battle	bool	False	dict	float	2012	Config/Activity/RtBattle/Ability/Avatar/RtBattleAvatar_Aventurine_00_Ability.json	/AbilityList/0/OnStart/6/FMHMAHCNDGB/FixedValue
+rt-battle	bool	False	dict	int	2210	Config/Activity/RtBattle/Ability/Avatar/RtBattleAvatar_Aventurine_00_Ability.json	/AbilityList/0/OnStart/12/FMHMAHCNDGB/FixedValue
+rt-defence	bool	False	dict	float	90	Config/Activity/RtDefence/Ability/Avatar/RtDefence_Avatar_Mar_7th_00_Ability.json	/AbilityList/0/OnStart/2/FMHMAHCNDGB/FixedValue
+rt-defence	bool	False	dict	int	74	Config/Activity/RtDefence/Ability/Avatar/RtDefence_Avatar_Mar_7th_00_Ability.json	/AbilityList/0/OnStart/3/PJCICCBNBEI/FlySpeed/FixedValue

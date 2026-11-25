@@ -1,0 +1,56 @@
+2507 singleton bindings; 501 distinct name/hash pairs; 480 names
+pair	MDF_PropertyValue	2128130574	465
+pair	MDF_1	909832565	156
+pair	MDF_PropertyRatio	-1266164220	44
+pair	ADF_1	909827945	27
+pair	MDF_SpeedAddedRatio	-422130114	18
+pair	MDF_PropertyValue	1662446059	16
+pair	MDF_DamageAddedRatio	625640552	14
+pair	MDF_AttackAddedRatio	-1826473127	13
+pair	MDF_Value	-1920033213	13
+pair	MDF_AllDamageReduce	743392864	12
+pair	MDF_DefenceAddedRatio	1849530227	12
+pair	MDF_HardLockHPRatio	-1581225347	11
+names having multiple candidates: 9
+conflict	ADF_1	-1387017452	-1162441728	221918956	398306701	909827945	1566866072	1662446059	1912601768
+conflict	ADF_4	-1755149432	909827948
+conflict	DamagePercent	-1409720982	-1342592610	-658184096
+conflict	DamageUPRatio	1458882163	1662446059
+conflict	MDF_DefendDownRatio	1662446059	1776259831
+conflict	MDF_PropertyValue	-770009540	1662446059	1912601768	2128130574
+conflict	MDF_SpeedDownRatio	-811945046	1662446059
+conflict	MazeBuffParam_1	-1387017452	158194345	526045269	1662446059
+conflict	Value	45388030	722668938	1803358415
+adler32	utf-16-le	0	2507
+adler32	utf-8	0	2507
+alternating-djb2	utf-16-code-units	2394	113
+bkdr131	utf-16-le	0	2507
+bkdr131	utf-8	0	2507
+crc32	utf-16-le	0	2507
+crc32	utf-8	0	2507
+djb2	utf-16-le	0	2507
+djb2	utf-8	0	2507
+djb2xor	utf-16-le	0	2507
+djb2xor	utf-8	0	2507
+fnv1	utf-16-le	0	2507
+fnv1	utf-8	0	2507
+fnv1a	utf-16-le	0	2507
+fnv1a	utf-8	0	2507
+multiply31	utf-16-le	0	2507
+multiply31	utf-8	0	2507
+sdbm	utf-16-le	0	2507
+sdbm	utf-8	0	2507
+distinct matches 444 / 501
+mismatched singleton bindings with predicted alternative hash in recipient: 100
+computed	MDF_PropertyValue	2128130574
+computed	MDF_1	909832565
+computed	ADF_1	909827945
+computed	DV_AddPoint	-1559105366
+computed	MDF_Windfury_Flag	797038063
+computed	MDF_Windfury_Flag_Sum	1909050563
+computed	Rank02	523552506
+computed	Rank2	-1328805514
+computed	ExRank01	1475409642
+rank control	AvatarRankConfig	630	0
+rank control	AvatarRankConfigLD	24	0
+rank control	AvatarRankConfigTrial	30	0

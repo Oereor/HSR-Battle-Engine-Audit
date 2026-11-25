@@ -1,0 +1,3 @@
+1279 types; 364136 nodes; {'core': 296845, 'adjacent': 65011, 'special': 2280}
+All catalogue aggregates match the shared type totals and slot sums.
+Verified normal / inserted / projectile / composite hit, shield, typed template and servant joins, and skill mapping.

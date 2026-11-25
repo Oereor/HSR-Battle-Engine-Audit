@@ -1,0 +1,7 @@
+recount: 134609 parsed files, 4636 types, 2778581 occurrences
+checked 32 pointers from SELECT path,pointer,type FROM occurrences
+checked 32 pointers from SELECT path,pointer,name FROM definition_locations WHERE kind='ability'
+checked 32 pointers from SELECT path,pointer,name FROM reference_locations
+checked 32 pointers from SELECT path,pointer,name FROM event_locations WHERE form='callback-selector'
+ref statuses: {'ambiguous': 1321, 'candidate': 58751, 'confirmed': 240672, 'scoped': 51038, 'unresolved': 270719}
+Excel candidate join rows / unmatched: (126387, 1020)
