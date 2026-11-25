@@ -1,0 +1,15 @@
+population	metric	types
+all selected task types	Avatar and Monster ability resource families	235
+all selected task types	TargetType and selected nested task	18
+all selected task types	literal TargetType field	323
+all selected task types	opaque identifier	260
+all selected task types	selected nested task	97
+all selected task types	target/source-shaped input	457
+all selected task types	typed task role	1279
+type also occurs in core task slots	Avatar and Monster ability resource families	235
+type also occurs in core task slots	TargetType and selected nested task	17
+type also occurs in core task slots	literal TargetType field	292
+type also occurs in core task slots	opaque identifier	241
+type also occurs in core task slots	selected nested task	60
+type also occurs in core task slots	target/source-shaped input	385
+type also occurs in core task slots	typed task role	980

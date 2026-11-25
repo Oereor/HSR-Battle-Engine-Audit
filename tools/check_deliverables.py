@@ -36,7 +36,7 @@ def main():
     missing = []
     pointer_issues = []
     seen = set()
-    docs = sorted(ROOT.glob('*.md')) + sorted(ROOT.glob('[0-9][0-9]-*/*.md'))
+    docs = sorted(p for pattern in ('*.md', '[0-9][0-9]-*/*.md', 'index/*.md') for p in ROOT.glob(pattern))
     if not args.pointers_only:
         required = [ROOT / f for f in GLOBALS] + [
             ROOT / group / filename for group in EXPECTED for filename in ('report.md', 'inventory.md')]
@@ -45,6 +45,13 @@ def main():
             if doc.name == 'AUDIT_SPEC.md':
                 continue
             missing.extend(target for target in local_targets(doc) if target.is_relative_to(ROOT) and not target.exists())
+        cases = ROOT / '07-case-studies'
+        case_files = sorted(cases.glob('[0-9][0-9]-*.md'))
+        case_numbers = [int(p.name.split('-', 1)[0]) for p in case_files]
+        assert case_numbers == list(range(1, 16)), ('case numbering', case_numbers)
+        case_links = set(local_targets(cases / 'inventory.md'))
+        assert set(case_files) <= case_links, ('cases missing from inventory', set(case_files) - case_links)
+        print(f'{len(case_files)} independent cases linked from the inventory')
     for doc in docs:
         body = markdown(doc)
         for rel, pointer in EVIDENCE.findall(body) + PLAIN_EVIDENCE.findall(body):

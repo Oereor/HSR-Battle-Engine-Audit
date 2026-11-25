@@ -1,6 +1,6 @@
 # HSR 战斗引擎配置语言审计
 
-数据为本地 TurnBasedGameData 工作树 `2c8a218502ebfccaf6e01675b0bdf6948d723bbb`，版本标记 `OSPRODWin4.7.0_D17216325_A17211182_L17175930`。当前阶段和校验结果见 [PROGRESS.md](PROGRESS.md)；研究口径见 [AUDIT_SPEC.md](AUDIT_SPEC.md)、[PLAN.md](PLAN.md) 与 [CLAIMS.md](CLAIMS.md)。
+数据为本地 TurnBasedGameData 工作树 `2c8a218502ebfccaf6e01675b0bdf6948d723bbb`，版本标记 `OSPRODWin4.7.0_D17216325_A17211182_L17175930`。当前阶段和校验结果见 [PROGRESS.md](PROGRESS.md)；完整结论见 [SUMMARY.md](SUMMARY.md)；验收证据见 [最终核验](index/final-audit.md)。研究口径见 [AUDIT_SPEC.md](AUDIT_SPEC.md)、[PLAN.md](PLAN.md) 与 [CLAIMS.md](CLAIMS.md)。
 
 | 专题 | 报告 | 清单 |
 | --- | --- | --- |
@@ -15,3 +15,5 @@
 | 08 引擎抽象 | [报告](08-engine-reconstruction/report.md) | [清单](08-engine-reconstruction/inventory.md) |
 
 [索引手册](index/README.md)提供 SQLite 库结构、重建命令及 JSON Pointer 查询。原始引用路径以 TurnBasedGameData 为根。配置事实、静态推导、语义推断与运行时假设分别标级。
+
+常用入口：[原子操作逐类型表](02-atomic-operations/operations.tsv) · [Ability 引用图](01-entity-ability/ability-static-graph.tsv) · [Modifier 参考](03-modifier/inventory.md) · [回调参考](04-callback-trigger/inventory.md) · [15 个代表性案例](07-case-studies/inventory.md)。

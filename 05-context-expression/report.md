@@ -53,7 +53,7 @@
 
 该值出现在 `Config/ConfigAbility/Avatar/Avatar_Asta_00_Ability.json#/AbilityList/1/OnStart/7/AttackProperty/DamagePercentage`。哈希 `-1126825319` 出现在角色同技能 `DynamicValues.Floats` 声明，`ReadInfo` 为 `{"Type":"SkillParam","TriggerKey":"Skill01","Index":0}`。角色的 `AvatarConfig.SkillList` 数字 ID、技能等级行与 `SkillTriggerKey` 合看可求出 0.5、0.6。单哈希编码 `AQAR` 对应字节 `01 00 11`，在已定位、空固定常量表、只含一条具名声明的样本中支持 **Derived** 的参数值联接。选区里有 74,704 个 `PostfixExpr`，700 种 Base64 字面图样。频度最大的 `AQAR` 有 55,680 个，`AQABAQQR` 有 3,498 个，`AQABAQIR` 有 1,931 个。
 
-**Inferred**。 `01 00 01 01 02 11` 的两动态输入案例与相加相容，布洛妮娅战技的 `ByRankActivated` 分支提供 Rank06 值，同一效果的失败分支用单个基础值。停云相同编码与相同门槛写在 `ModifySPNew.FixedAddValue`，但当前 Rank06 参数为空，故只求可绑定的一侧。艾丝妲 PointB1 的 `01 00 01 01 04 11` 的两输入与相乘相容，结合本地描述直接表明效果依赖普攻值的一个参数比例，可对两级输入求得候选结果。这两种操作的具名习惯、局部描述和首尾形态提供独立约束，其他字节指令语义、浮点舍入与运行时栈模型仍未知。
+**Inferred**。 `01 00 01 01 02 11` 的两动态输入案例与相加相容，布洛妮娅战技的 `ByRankActivated` 分支提供 Rank06 值，同一效果的失败分支用单个基础值。停云在 `ModifySPNew.FixedAddValue` 使用相同编码与同阶门槛。核验角色所属 RankID 后，基础输入为 50，星魂输入为 10，支持相加候选 60。艾丝妲 PointB1 的 `01 00 01 01 04 11` 的两输入与相乘相容，结合本地描述直接表明效果依赖普攻值的一个参数比例，可对两级输入求得候选结果。这两种操作的具名习惯、局部描述和首尾形态提供独立约束，其他字节指令语义、浮点舍入与运行时栈模型仍未知。
 
 根目录 `EquipmemtAbility.json` 的同名 `Ability20000` 使用并列形态 `DynamicValues.Values`、`ReadInfo.Str` 与 `AQAK`，字节为 `01 00 0a`。结合 `Equip/` 版数据可证序列化表示变体共存。脚本只在指定表达式、指令和输入均通过精确检查时解释值。复杂常量池、其他代码图样、缺失绑定、运行时间输入和跨版本替换均保留 Unknown。哈希配对另有双累加器候选，从源里的 2,507 个单键配对位置及 684 条星魂 TriggerHash 逐条实验。该算法区分施加实参名的计算哈希、参数值引用中的来源哈希、目标作用域局部声明或写入的内部键。[哈希证据和误配反例](hash-probe.md) · [全部表达式图样](postfix-shapes.tsv)
 
@@ -64,12 +64,12 @@
 | 艾丝妲普通攻击 | **Derived**。Avatar 1009 的 `SkillID=100901` 等级 1/2，经 `Skill01`、Phase01 的具名请求、Phase02 的 `DamageByAttackProperty`，静态 `DamagePercentage` 输入 0.5/0.6。参见 `ExcelOutput/AvatarSkillConfig.json#/191/ParamList/0/Value` 和 `#/192/ParamList/0/Value` |
 | 艾丝妲灼烧行迹 | **Derived**。 `ExcelOutput/AvatarSkillTreeConfig.json#/487` 的 PointID 1009101、AvatarID 1009、`PointB1`，经成功分支 `/AbilityList/1/OnStart/6/SuccessTaskList/0` 施加 `MCommon_DOT_Burn`，明文入参为基础概率 0.8 和时长 3。**Inferred**。乘积候选 0.25/0.30 对应两级技能配行迹比例 0.5。配置共用 Burn 定义 `Config/ConfigGlobalModifier/GlobalModifier_Common_Specific.json#/ModifierMap/MCommon_DOT_Burn/_CallbackList/1/CallbackConfig/2/AttackProperty/DamagePercentage` 读取 `Modifier_Burn_DamagePercentage` 的候选哈希及另一动态量。因此加状态入参的候选乘积和实际 DOT 值分层。辅助文字见 `TextMap/TextMapCHS.json#/16178627604319461393` |
 | 布洛妮娅战技及星魂 | **Derived**。Skill 110102 等级 1 的参数 index 2 为 1，经 Phase01 的 FailedTaskList 具名请求进入 Phase02 分支，写入 `MAvatar_Bronya_00_BPSkill_DamageUp.LifeTime`。Rank 110106 的 TriggerHash `-1445815962` 在同 Ability 的 `ByRankActivated` 分支出现，Param[0] 为 1。**Inferred**。真分支两个输入的相加候选为 2。施加实参 `MDF_DamageAddedRatio=0.33` 由 index 0 联接，接收方 `OnStack` 读其候选哈希并写 `AllDamageTypeAddedRatio`。辅助文字见 `TextMap/TextMapCHS.json#/7244991336643732642` |
-| 停云终结技 | **Derived**。Avatar 1202 的 Skill 120203 对应的等级 1 行以 `Skill03` 进入 Phase01，`OnStart/5` 请求 Phase02， `Config/ConfigAbility/Avatar/Avatar_Tingyun_00_Ability.json#/AbilityList/6/OnStart/7/FailedTaskList/0/FixedAddValue` 绑定数值 50。**Unknown**。同段真分支读 Rank06 index 0，`ExcelOutput/AvatarRankConfig.json#/143/Param` 为空，当前数据给不出该项数值 |
+| 停云终结技 | **Derived**。Avatar 1202 的 Skill 120203 对应的等级 1 行以 `Skill03` 进入 Phase01，`OnStart/5` 请求 Phase02， `Config/ConfigAbility/Avatar/Avatar_Tingyun_00_Ability.json#/AbilityList/6/OnStart/7/FailedTaskList/0/FixedAddValue` 绑定数值 50。**Derived**。 `ExcelOutput/AvatarConfig.json#/22/RankIDList/5` 给出 120206，匹配 `ExcelOutput/AvatarRankConfig.json#/149/Param/0/Value` 的 10。**Inferred**。同段真分支是两输入加法候选 60。 `ExcelOutput/AvatarRankConfig.json#/143` 的同哈希行属于另一角色 1201，其空参数是作用域误配反例 |
 | 光锥 Ability20000 | **Derived**。 `EquipmentConfig.SkillID=20000` 与 `EquipmentSkillConfig` 等级 1/2 的 `AbilityName` 对接 `Equip/` 定义，两个 `SkillEquip` 索引输入分别成为本地 Modifier `OnStack.StackProperty.CriticalChanceBase` 的 0.12/0.15 和施加点寿命 3/3。同步存在名同而表示有异的根定义，加载选择未知 |
 | 遗器 Ability51061 | **Derived**。 `ExcelOutput/RelicSetSkillConfig.json#/11` 的 SetID 106、RequireNum 4、AbilityName 与 `SkillRelic.TriggerKey="106_4"` 对应。 `OnStart` 给 Caster 装上状态，`OnPhase1` 对状态持有者配置 HP 比例比较 `LessEqual 0.5`，成功分支 `HealHP.FormulaType="HealByTargetMaxHP"` 的比例为 0.08，及 `ModifySPNew.AddValue=5`。比例阈值、治疗比例与能量入参可静态求值，触发时血量与最终效果未知 |
 | 黄泉 ExRank | **Derived**。混淆表 `ExcelOutput/AvatarExRankConfig.json#/2` 同时含角色 ID 1308 和 Ability `Avatar_Acheron_00_ExRank01`，其 `NNACKOBKFGE[1].Value` 为 1。 `SkillRank.ExRank01` 的 Index 1 从黄泉角色声明联到插入 Phase02 的 `ModifySpecialSP.FixedAddValue`。同文件 Phase01 明文请求 Phase02。仅此具名链可解释该表行在案例中的输入角色，其他混淆字段、运行时上限及调用时点保持未知 |
 
-[逐节点路径和值](binding-results.tsv) · [120 条证据摘录](evidence.jsonl)
+[逐节点路径和值](binding-results.tsv) · [122 条证据摘录](evidence.jsonl)
 
 ## 变量、读写和控制流
 
@@ -90,7 +90,7 @@
 - **CTX-001 · Observed**。公共别名和目标操作字典分别有 196 和 80 条。`AllEnemy` 和 `AllTeamMember` 采用两种可复查的映射序列。
 - **CTX-002 · Derived**。补充索引让 v2 未匹配的 250,243 个别名位置得到单一精确候选。另有 5,513 个 v2 未匹配位置的词法组件均可定位。模式字典碰撞、未解析名字和语法行为须分开。
 - **CTX-003 · Observed**。Caster、状态持有者、施加者、选定目标、事件参数及召唤关系均有取值接口。同一效果链可分别引用多个角色。见公共字典、黄泉调用与艾丝妲状态路径。
-- **CTX-004 · Derived**。现代 `ReadInfo` 的 Type、TriggerKey、Index 与作用域数字哈希可建立部分具名、级别和对象绑定。常量及部分单输入表达式已静态求值。停云 Rank06 和同名装备的并列形态保留为例外。
+- **CTX-004 · Derived**。现代 `ReadInfo` 的 Type、TriggerKey、Index 与作用域数字哈希可建立部分具名、级别和对象绑定。常量及部分单输入表达式已静态求值。停云与角色 1201 的同阶哈希相同，装备定义也有同名变体，两个例子都要求先确定归属。
 - **CTX-005 · Inferred**。基于多个实际样本与本地辅助描述，`AQABAQIR` 和 `AQABAQQR` 在指定样本支持和式、乘积候选。完整操作码、执行实现与舍入、误差处理未知。
 - **CTX-006 · Observed**。配置显式提供九个观察到的 `ContextScope` 值，以及事件参数、动态实体、模板参数和状态参数机制。词法可见性和运行时实例生存期需要独立证据。
 - **CTX-010 · Inferred**。双累加器有符号哈希候选支持文本键和数字引用的多实例配对。目标容器的同名覆盖、Unicode 处理与剩余反例仍待明确。

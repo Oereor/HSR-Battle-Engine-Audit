@@ -38,7 +38,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 tools/probe_named_values.py
 | [postfix-shapes.tsv](postfix-shapes.tsv)、[fixed-value-shapes.tsv](fixed-value-shapes.tsv) | 各域指令 Base64、十六进制、常量及哈希池大小、包装字段、位置与计数。固定值另分容器和内值形态 |
 | [read-info-shapes.tsv](read-info-shapes.tsv) | 来源类别、TriggerKey 与 Index 的形态、字段、计数和代表节点，包括 Values/Str 变体 |
 | [context-scopes.tsv](context-scopes.tsv)、[context-variable-fields.tsv](context-variable-fields.tsv) | 作用域枚举、涉及任务或无类型容器、变量与参数读写形态 |
-| [binding-results.tsv](binding-results.tsv)、[evidence.jsonl](evidence.jsonl) | 七组案例的 19 条静态校核和 120 条片段，以及针对角色区分、目标管道和异常配置的定位 |
+| [binding-results.tsv](binding-results.tsv)、[evidence.jsonl](evidence.jsonl) | 七组案例的 20 条静态校核和 122 条片段，以及针对角色区分、目标管道和异常配置的定位 |
 | [hash-probe-pairs.tsv](hash-probe-pairs.tsv)、[hash-probe.log](hash-probe.log) | 2,507 处具名单键候选及不同算法对照。另见 [文本哈希实验](hash-probe.md) |
 | [raw-scan-manifest.tsv](raw-scan-manifest.tsv)、[catalogue.log](catalogue.log)、[verification.log](verification.log) | 局部原始读取范围、生成计数及运行记录 |
 

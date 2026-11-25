@@ -34,12 +34,28 @@
 | CTX-001 | 上下文 | Observed | 公共目标别名和操作字典分别有 196 和 80 条，`AllEnemy` 和 `AllTeamMember` 可比较到不同映射序列。见 [目标选择](05-context-expression/report.md) | Rt 可重定义同名目标；运行时覆盖范围未知 |
 | CTX-002 | 上下文 | Derived | v2 未匹配的别名字面位置中 250,243 条得到单一精确字典候选，另有完整分词候选。见 [别名汇总](05-context-expression/alias-counts.tsv) | 分隔符优先级、运算和实际查找规则仍待验证 |
 | CTX-003 | 上下文 | Observed | 目标槽可区分 Caster、ModifierOwner、CallBackModifierCaster、事件参数、攻防实体和召唤者，见 [角色与数据槽](05-context-expression/report.md) | 上下文是否捕获、复制、共享及何时失效未知 |
-| CTX-004 | 上下文 | Derived | 技能等级、行迹、星魂、光锥及遗器的特定参数可通过主表、触发键、声明索引与整数引用定位。见 [校验明细](05-context-expression/binding-results.tsv) | 停云 Rank06 参数缺失；同名装备的序列化形态不同 |
+| CTX-004 | 上下文 | Derived | 技能等级、行迹、星魂、光锥及遗器的特定参数可通过主表、触发键、声明索引与整数引用定位。见 [校验明细](05-context-expression/binding-results.tsv) | 停云 Rank06 先经角色 RankIDList 排除其他角色的同哈希行；同名装备的序列化形态不同 |
 | CTX-005 | 上下文 | Inferred | 两输入 `AQABAQIR` 和 `AQABAQQR` 在布洛妮娅、停云及艾丝妲的对照中分别支持加法和乘法解释。见 [表达式校验](05-context-expression/report.md) | 整套字节指令、舍入、求值器及作用域未知 |
 | SCH-001 | 调度 | Derived | Archer 战技费用、饮月增强技能费用与白厄入口资格分别由主数据、技能字段和条件表达。见 [资源与支付](06-resource-scheduling/report.md) | UI 承诺、正式提交与结算次序未知 |
-| SCH-002 | 调度 | Inferred | Archer 的连发结构有独立插入请求、取消、BP 检查与星魂条件返还的证据。见 [资源报告](06-resource-scheduling/report.md) | 当前局部字典未恢复所有回补量绑定 |
+| SCH-002 | 调度 | Inferred | Archer 的连发结构有独立插入请求、取消、BP 检查与星魂条件返还的证据。见 [资源报告](06-resource-scheduling/report.md) | Rank01 在既有分支的门槛和增量输入为 3、2；实际扣减和退还时序未知 |
 | SCH-003 | 调度 | Observed | 队伍 BP 与实体 BP 有不同操作，花火分别修改队伍存量和上限，饮月与火花还读取 BP 事件 RawDelta。见 [接口清单](06-resource-scheduling/interfaces.tsv) | 替代支付确切扣减顺序、溢出截断和派发时点未知 |
 | SCH-004 | 调度 | Derived | 黄泉和白厄分别展示状态层数及动态变量的特殊 SP 超限路径。银狼 999 的 BP 监听成功分支可追到下一 Ability。见 [资源报告](06-resource-scheduling/report.md) | 特殊资源内部存储、去重与提交时点未知 |
 | SCH-005 | 调度 | Observed | Delay 设置和增量、调用 Ability、插入 Ability、插入 Action 有独立结构。见 [行动接口](06-resource-scheduling/report.md) | 各类动作请求如何共享底层调度未知 |
 | SCH-006 | 调度 | Derived | 景元、知更鸟与白厄存在带独立行动相关参数的 BattleEvent；衣匠从 Servant ID 接入。见 [实体对照](06-resource-scheduling/report.md) | Team 字段优先次序及同速度并列规则未知 |
 | SCH-007 | 调度 | Observed | 阮·梅样本可查询队首插入请求，Archer 样本可查询下一未用插入行动和计数。见 [排序证据](06-resource-scheduling/report.md) | 配置可观察顺序，FIFO、LIFO、堆和优先级比较实现未知 |
+| CTX-006 | 上下文 | Observed | 局部提取观察到 9 个 ContextScope 字面值，父任务、模板、目标和值的形态可以区分。见 [字段与作用域](05-context-expression/inventory.md) | 作用域可见性、寿命、按值或按引用传递待证 |
+| CASE-001 | 案例 | Derived | 姬子可选普攻和事件插入追击共享伤害任务，分别绑定不同技能参数与目标。见 [命中案例](07-case-studies/15-himeko-hit.md) | 段权重不是完整伤害式，韧性参数有未定位项 |
+| CASE-002 | 案例 | Derived | DawnsEye 的不同阶段分支可指向分别复用 Monster_ChangePhase 的 Ability，另一 BattleEvent 能注入关卡回合规则。见 [敌方案例](07-case-studies/14-enemy-phase.md) | 生命阈值条件和调用关系已定位，跨事件竞争未知 |
+| CASE-003 | 案例 | Derived | 刻律德菈接入公共 Windfury，条件满足可见使用技能标识、目标和上下文的行动插入请求。见 [技能重用](07-case-studies/09-cerydra.md) | 原执行帧的复制、重新选取及实际次数未知 |
+| CASE-004 | 案例 | Contradicted | 「所有战斗召唤均由一个 Ability 名单入口装载」被 Event 11203、11216 的名单/技能路径差异与独立 Servant 入口否定。见 [召唤案例](07-case-studies/10-summons.md) | 暂无运行时装载优先级 |
+| ARC-001 | 重建 | Derived | 主数据身份、行为定义、任务与事件结构的静态关系，可在跨角色、装备和关卡逐边定位。见 [概念模型](08-engine-reconstruction/report.md) | 模块、对象类与执行图实现未定 |
+| ARC-002 | 重建 | Inferred | 可重用类型化任务、条件、目标、参数、命名调用和事件组成了配置行为 DSL。见 [语言表达](08-engine-reconstruction/report.md) | 是否解释、预编译或用混合方式处理未知 |
+| ARC-003 | 重建 | Observed | 操作结构兼有跨角色复用和复合职责，选区 235 种类型同时落在 Avatar、Monster 行为资源，97 种含所选嵌套任务。见 [结构统计](08-engine-reconstruction/composition-shapes.tsv) | 计数基于类型出现，声明粒度无法界定运行时原子性 |
+| ARC-004 | 重建 | Hypothesis | 同步子调用加独立延后执行、有序待处理集合、帧与事件分发和阶段/消息混合均可解释若干局部样本。见 [候选架构](08-engine-reconstruction/report.md) | 缺少跨阶段时序、线程和入出待处理轨迹，无法唯一判定 |
+| ARC-005 | 重建 | Unknown | 官方调度器及数值结算模块的实现、完整默认值、参数和状态实例的生命周期。见 [功能职责参考](08-engine-reconstruction/inventory.md) | 特定能力和策略字段的存在只能证明接口 |
+| ARC-006 | 重建 | Contradicted | 「所有 Modifier 只是属性增减」与禁用行动旗标、资源路由、跨实体状态及技能重播证据冲突。见 [角色与状态组合](07-case-studies/report.md) | 实例、注册、消费和清理的内部顺序未知 |
+
+## 修订记录
+
+- CTX-004。停云原绑定仅以共享 Rank06 哈希选到角色 1201，导致错误的缺参结论。按角色 1202 的 RankIDList 重选 RankID 120206，读取该行参数 10。05 校验及案例 03 都保留误配反例。
+- SCH-002。案例 05 将 Archer 一魂的两个动态引用解析到 Rank01 槽 0/1，输入为计数阈值 3、BP 增量 2，已更新 06 校验。是否对应实际退还及具体时序继续分级保留。

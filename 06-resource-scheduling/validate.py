@@ -37,8 +37,18 @@ def cost_chain():
     assert archer_call['AbilityName']['Value'] == ability('Archer', '/AbilityList/3/Name')
     rank = ability('Archer', '/AbilityList/3/OnStart/10/Predicate/TriggerKey/Hash')
     assert rank == excel('AvatarRankConfigLD', '/6/Trigger/Hash')
+    assert archer['RankIDList'][0] == excel('AvatarRankConfigLD', '/6/RankID') == 101501
+    values = ability('Archer', '/AbilityList/3/OnStart/10/SuccessTaskList/0/Predicate/CompareValue')
     bump = ability('Archer', '/AbilityList/3/OnStart/10/SuccessTaskList/0/SuccessTaskList/0')
     assert kind(bump) == 'ModifyTeamBoostPoint' and bump['ModifyFunction'] == 'Add'
+    for expr, token, index, expected in [
+        (values, 952868987, 0, 3),
+        (bump['ModifyValue'], 1424168145, 1, 2),
+    ]:
+        assert expr['PostfixExpr']['DynamicHashes'] == [token]
+        info = character('Archer', f'/DynamicValues/Floats/{token}/ReadInfo')
+        assert (info['Type'], info['TriggerKey'], info['Index']) == ('SkillRank', 'Rank01', index)
+        assert excel('AvatarRankConfigLD', f'/6/Param/{index}/Value') == expected
     trigger = '/GlobalModifiers/MAvatar_Archer_00_BonusTrigger/_CallbackList/1'
     request = ability('Archer', trigger + '/CallbackConfig/1/SuccessTaskList/1/SuccessTaskList/0')
     assert ability('Archer', trigger + '/Event') == 'OnListenAfterAction'
